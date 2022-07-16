@@ -1,20 +1,21 @@
-<main>
-  <h1>welcome to <span class="fa fa-book"></span>Bookers !!</h1>
-  <p>In <span class="fa fa-book"></span>Bookers,</p>
-  <p>you can share and exchange your opinions , inpressions , and emotions</p>
-  <p>about various books!</p>
-
-  <div class="btn-wrapper">
-        <li>
+<div class='mx-auto'>
+  <main>
+    <h1>welcome to <span class="fas fa-book fa-w-14"></span>Bookers !!</h1>
+    <p>In <span class="fas fa-book fa-w-14"></span>Bookers,</p>
+    <p>you can share and exchange your opinions , inpressions , and emotions</p>
+    <p>about various books!</p>
+  
+    <div class="btn-wrapper col-10 mx-auto">
+      <div class="row">
+        <span class="btn btn-info btn-sm btn-block mb-3 sign_in">
           <%= link_to "Log in", new_user_session_path %>
-        </li>
-        <li>
+        </span>
+      </div>
+      <div class="row">
+        <span class="btn btn-success btn-sm btn-block sign_up">
           <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-  </div>
-
-</main>
-
-<footer>
-  <p>CopyRight Infratop.inc</p>
-</footer>
+        </span>
+      </div>
+    </div>
+  </main>
+</div>

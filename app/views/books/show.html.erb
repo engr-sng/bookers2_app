@@ -1,2 +1,56 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class='col-md-3'>
+
+  <!-- 本のエラー情報 -->
+  <%= render 'layouts/book_errors.html.erb', book: @book %>
+  
+  <!-- ユーザー情報 -->
+  <%= render 'layouts/user_info.html.erb', user: @user %>
+  
+  <!-- 本の投稿画面 -->
+  <%= render 'layouts/new_book.html.erb', book: @book %>
+
+</div>
+
+
+<!-- 本の詳細 -->
+
+<div class='col-md-8 offset-md-1'>
+
+  <h2>Book detail</h2>
+  
+  <table>
+    <tr>
+      <th>画像</th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <% if @bookshow.user_id == current_user.id %>
+      <th>編集</th>
+      <th>削除</th>
+      <% end %>
+    </tr>
+    <tr>
+      <th>
+        <%= link_to user_path(@bookshow.user_id) do %>
+          <%= image_tag @bookshow.user.get_profile_image(80,80) %><br>
+          <%= @bookshow.user.name %>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to @bookshow.title, book_path(@bookshow.id) %>
+      </th>
+      <th>
+        <%= @bookshow.body %>
+      </th>
+      <% if @bookshow.user_id == current_user.id %>
+      <th>
+        <%= link_to "Edit", edit_book_path(@bookshow.id) %>
+      </th>
+      <th>
+        <%= link_to "Destroy", book_path(@bookshow.id), method: :delete, data: {confirm: "本当に消しますか？"} %>
+      </th>
+      <% end %>
+    </tr>
+  </table>
+
+</div>
+
